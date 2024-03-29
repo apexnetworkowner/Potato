@@ -42,6 +42,7 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2; /* Ensure the search input is above the particles */
 
   text-align: center;
 
@@ -70,20 +71,19 @@ body {
 }
 
 .input {
-  width: 100%;
+  width: 130%; /* Adjusted width for a longer search input */
   background-color: transparent;
-  border: 1.5px rgb(74, 74, 74) solid;
+  border: 1.5px gray solid;
   border-radius: 5px;
-  font-size: 14px;
-  padding: 20px;
+  font-size: 20px;
   text-align: center;
   color: white;
   outline: none;
-  length: 75%;
-
+  height: 50px;
   transition: color;
   transition-duration: 100ms;
 }
+
 
 .input:disabled {
   color: #757575;
@@ -109,7 +109,6 @@ body {
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-
   flex-shrink: 0;
 
   padding: 18px;
@@ -143,8 +142,7 @@ body {
         position: relative;
         width: 100vw;
         height: 100vh;
-        z-index: 1; /* Ensure particles are displayed on top */
-        pointer-events: none; /* Prevent interaction with particles */
+        z-index: 1; /* Ensure particles are displayed behind the search input */
     }
     .particle {
         position: absolute;
@@ -182,7 +180,7 @@ body {
     <input type="text" class="input" placeholder="Enter a search query or URL">
   </div>
   
-<div class="par pointer-events-none">
+<div class="par">
 </div>
 
   <script src="./assets/script.js" defer></script>
