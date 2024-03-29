@@ -144,6 +144,7 @@ body {
         width: 100vw;
         height: 100vh;
         z-index: 1; /* Ensure particles are displayed on top */
+        pointer-events: none; /* Prevent interaction with particles */
     }
     .particle {
         position: absolute;
@@ -181,7 +182,7 @@ body {
     <input type="text" class="input" placeholder="Enter a search query or URL">
   </div>
   
-<div class="par">
+<div class="par pointer-events-none">
 </div>
 
   <script src="./assets/script.js" defer></script>
