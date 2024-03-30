@@ -201,6 +201,45 @@ body {
       border: none;
       padding: 5px;
     }
+     .blank {
+     text-align: center;
+     margin-top: 20px;
+        }
+     .blankbutton {
+      background-color: grey;
+      padding: 5px;
+      border-radius: 8px; 
+      border: none;
+      outline: none; 
+      cursor: pointer;
+        }
+      .blankbutton:hover {
+       background-color: lightgrey; 
+        }
+    
+       body {
+       --dark-color: #333333; /* Dark theme */
+       --white-color: #ffffff; /* White theme */
+       --ocean-color: #3498db; /* Ocean theme */
+       --fire-color: #e74c3c; /* Fire theme */
+       --ice-color: #2ecc71; /* Ice theme */
+            transition: background-color 0.5s;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+       .theme-button {
+       background-color: grey; 
+       border: none;
+       color: white;
+       padding: 10px 20px;
+       margin: 0 5px;
+       cursor: pointer;
+       border-radius: 5px;
+        }
+   
   </style>
 
   <!-- Scripts -->
@@ -231,6 +270,25 @@ body {
     <input style="border-radius: 5px; background-color: transparent; padding: 5px;" type="file" id="favicon"><br><br>
     <button style="background-color: gray; padding: 5px; border-radius: 8px; border: none;" onclick="saveSettings()">Save</button>
     <button style="background-color: gray; padding: 5px; border-radius: 8px; border: none;" onclick="closeSettings()">Close</button>
+    <div style="background-color: transparent;" class="blank">
+    <button style="background-color: grey; padding: 5px border-radius: 8px; border: none;" class="blankbutton" onclick="aboutblank()">Launch About:Blank</button>
+    </div>
+    <div style="background-color: transparent;" class="panic">
+    <button onclick="panicButton()" style="background-color: grey; padding: 5px 20px; border: none; border-radius: 5px; color: white; font-weight: none; cursor: pointer;">
+            Panic Button
+       </button>
+    </div>
+    <h3 style="background-color: transparent;">
+      Themes
+    </h3>
+    <div style="background-color: transparent;" class="Themes">
+        <button class="theme-button" onclick="changeTheme('--dark-color')">Dark Theme</button>
+        <button class="theme-button" onclick="changeTheme('--white-color')">White Theme</button>
+        <button class="theme-button" onclick="changeTheme('--ocean-color')">Ocean Theme</button>
+        <button class="theme-button" onclick="changeTheme('--fire-color')">Fire Theme</button>
+        <button class="theme-button" onclick="changeTheme('--ice-color')">Ice Theme</button>
+        <button class="theme-button" onclick="resetTheme()">Default Theme</button>
+    </div>
   </div>
 
   <!-- Button to open settings -->
@@ -266,6 +324,23 @@ body {
       particle.style.animationDuration = (Math.random() * 5 + 1) + 's';
       container.appendChild(particle);
     }
+    // Blank script
+      function aboutblank() {
+        var win = window.open(); var url = 'index.html'; var iframe = win.document.createElement('iframe'); iframe.style="position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;"; iframe.src = url; win.document.body.appendChild(iframe);
+      }
+    // Panic button script
+     function panicButton() {
+     window.close();
+     window.open('https://google.com', '_blank');
+        }
+    // Themes script
+         function changeTheme(color) {
+            document.body.style.backgroundColor = `var(${color})`;
+        }
+        
+        function resetTheme() {
+            document.body.style.backgroundColor = `#082E5F`;
+        }
   </script>
 </body>
 
