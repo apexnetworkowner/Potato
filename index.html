@@ -12,7 +12,6 @@
   <meta property="og:description"
     content="The gateway to open Restriction at school" />
   <meta property="og:image" content="" />
-  <meta name="theme-color" content="#262262" />
 
   <!-- Styles and fonts -->
   <link rel="stylesheet" href="./assets/style.css">
@@ -27,10 +26,11 @@
 * {
   margin: 0;
   padding: 0;
+  background-color: #082E5F;
 }
 
 body {
-  background-color: #151515;
+  background-color: #FFFFFF;
   color: white;
   height: 100vh;
   width: 100vw;
@@ -162,6 +162,45 @@ body {
             opacity: 0;
         }
     }
+
+    /* Styles for settings tab and button */
+    .settings-tab {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #0D7872 ;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      display: none; /* Hide the settings tab by default */
+      z-index: 1000; /* Ensure the settings tab is above other elements */
+    }
+    
+    .settings-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://www.svgrepo.com/show/498932/settings.svg'); /* Replace 'path/to/your/image.png' with the actual path to your image */
+      background-size: cover;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 1000; /* Ensure the button is above other elements */
+      transition-duration: 1s;
+    }
+    
+    .settings-button:hover {
+      transform: rotate(360deg);
+    }
+    
+    input[type=file]::file-selector-button {
+      background-color: gray;
+      border-radius: 8px;
+      border: none;
+      padding: 5px;
+    }
   </style>
 
   <!-- Scripts -->
@@ -183,21 +222,51 @@ body {
 <div class="par">
 </div>
 
+  <!-- Settings tab -->
+  <div class="settings-tab" id="settingsTab">
+    <h2 style="background-color:transparent;">Site Settings</h2>
+    <label style="background-color: transparent" for="siteName">Site Name:</label>
+    <input style="background-color: white; padding: 5px; border-radius: 4px; border: none;" type="text" id="siteName" placeholder="Enter new site name"><br><br>
+    <label style="background-color: transparent" for="favicon">Favicon:</label>
+    <input style="border-radius: 5px; background-color: transparent; padding: 5px;" type="file" id="favicon"><br><br>
+    <button style="background-color: gray; padding: 5px; border-radius: 8px; border: none;" onclick="saveSettings()">Save</button>
+    <button style="background-color: gray; padding: 5px; border-radius: 8px; border: none;" onclick="closeSettings()">Close</button>
+  </div>
+
+  <!-- Button to open settings -->
+  <div class="settings-button" onclick="openSettings()"></div>
+
   <script src="./assets/script.js" defer></script>
   <script>
+    
+    function openSettings() {
+      document.getElementById('settingsTab').style.display = 'block';
+    }
+
+    function closeSettings() {
+      document.getElementById('settingsTab').style.display = 'none';
+    }
+
+    function saveSettings() {
+      const siteName = document.getElementById('siteName').value;
+      document.title = siteName; // Update the site name
+      
+      closeSettings();
+    }
+
+    // JavaScript for particles animation
     const container = document.querySelector('.par');
     const numParticles = 100;
 
     for (let i = 0; i < numParticles; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.top = Math.random() * 100 + 'vh';
-        particle.style.left = Math.random() * 100 + 'vw';
-        particle.style.animationDuration = (Math.random() * 5 + 1) + 's';
-        container.appendChild(particle);
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = (Math.random() * 5 + 1) + 's';
+      container.appendChild(particle);
     }
-</script>
-
+  </script>
 </body>
 
 </html>
