@@ -5,10 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="" type="image/png">
-  <title>APEX NETWORK</title>
+  <title>Potato</title>
 
   <!-- Meta tags for SEO -->
-  <meta property="og:title" content="APEX NETWORK">
+  <meta property="og:title" content="Potato">
   <meta property="og:description"
     content="The gateway to open Restriction at school" />
   <meta property="og:image" content="" />
@@ -251,9 +251,9 @@ body {
 <body style="background-color: var(--dark-color);">
   <div class="container">
     <h1 class="header">
-      APEX NETWORK
+      Potato
     </h1>
-    <p class="description">Welcome to APEX NETWORK ENGINE</p>
+    <p class="description">Welcome to Potato Proxy</p>
     <input type="text" class="input" placeholder="Enter a search query or URL">
   </div>
   
@@ -286,4 +286,62 @@ body {
         <button class="theme-button" onclick="changeTheme('--ocean-color')">Ocean Theme</button>
         <button class="theme-button" onclick="changeTheme('--fire-color')">Fire Theme</button>
         <button class="theme-button" onclick="changeTheme('--ice-color')">Ice Theme</button>
-        <button class="theme-button" onclick="resetTheme()">Default Theme</button
+        <button class="theme-button" onclick="resetTheme()">Default Theme</button>
+    </div>
+  </div>
+
+  <!-- Button to open settings -->
+  <div class="settings-button" onclick="openSettings()"></div>
+
+  <script src="./assets/script.js" defer></script>
+  <script>
+    
+    function openSettings() {
+      document.getElementById('settingsTab').style.display = 'block';
+    }
+
+    function closeSettings() {
+      document.getElementById('settingsTab').style.display = 'none';
+    }
+
+    function saveSettings() {
+      const siteName = document.getElementById('siteName').value;
+      document.title = siteName; // Update the site name
+      
+      closeSettings();
+    }
+
+    // JavaScript for particles animation
+    const container = document.querySelector('.par');
+    const numParticles = 100;
+
+    for (let i = 0; i < numParticles; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      particle.style.top = Math.random() * 100 + 'vh';
+      particle.style.left = Math.random() * 100 + 'vw';
+      particle.style.animationDuration = (Math.random() * 5 + 1) + 's';
+      container.appendChild(particle);
+    }
+    // Blank script
+      function aboutblank() {
+        var win = window.open(); var url = 'index.html'; var iframe = win.document.createElement('iframe'); iframe.style="position:fixed;width:100vw;height:100vh;top:0px;left:0px;right:0px;bottom:0px;z-index:2147483647;background-color:white;border:none;"; iframe.src = url; win.document.body.appendChild(iframe);
+      }
+    // Panic button script
+     function panicButton() {
+     window.close();
+     window.open('https://google.com', '_blank');
+        }
+    // Themes script
+         function changeTheme(color) {
+            document.body.style.backgroundColor = `var(${color})`;
+        }
+        
+        function resetTheme() {
+            document.body.style.backgroundColor = `#082E5F`;
+        }
+  </script>
+</body>
+  <script type='text/javascript' src='//pl22954138.profitablegatecpm.com/2e/cf/30/2ecf304fffe5a7ca6209c38d4cf10d6d.js'></script>
+
+</html>
